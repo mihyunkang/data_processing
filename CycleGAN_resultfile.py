@@ -2,7 +2,12 @@ import os
 from PIL import Image
 
 path = '../CycleGAN/paired512result/denoisind_full_serial_batch_on_cyclegan/test_latest/images/'
-
+os.makedirs(path+'../FakeClean/')
+os.makedirs(path+'../RealClean/')
+os.makedirs(path+'../FakeNoise/')
+os.makedirs(path+'../RealNoise/')
+os.makedirs(path+'../FakeFakeClean/')
+os.makedirs(path+'../FakeFakeNoise/')
 file_list = os.listdir(path)
 for f in file_list:
     if f[9:15] == "fake_A" :
