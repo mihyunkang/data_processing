@@ -5,12 +5,13 @@ import os
 
 dir_list = ["SIDD_Medium_Raw"]
 
+def make_dir(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
 
 for d in dir_list:
-    if not os.path.exists("../../../data/SIDD-dataset/"+d+"_tiff"+"/GT/"):
-        os.makedirs("../../../data/SIDD-dataset/"+d+"_tiff"+"/GT/")
-    if not os.path.exists("../../../data/SIDD-dataset/"+d+"_tiff"+"/NOISY/"):
-        os.makedirs("../../../data/SIDD-dataset/"+d+"_tiff"+"/NOISY/")
+    make_dir("../../../data/SIDD-dataset/"+d+"_tiff"+"/GT/"):
+    make_dir("../../../data/SIDD-dataset/"+d+"_tiff"+"/NOISY/")
     folder_list = os.listdir('../../../data/SIDD-dataset/'+d+'/Data/')
     for folder in folder_list:
         file_list  = os.listdir('../../../data/SIDD-dataset/'+d+'/Data/'+folder+'/')
