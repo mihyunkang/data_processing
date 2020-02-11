@@ -1,7 +1,7 @@
 import os 
 from PIL import Image
 
-path = '../CycleGAN/paired512result/denoisind_full_serial_batch_on_cyclegan/test_latest/images/'
+path = '../../../data/CycleGAN-data/result/add_pixelwiseloss_512_cat_noise_200/pixelwiaeloss_concatNoise_512/test_latest/images/'
 os.makedirs(path+'../FakeClean/')
 os.makedirs(path+'../RealClean/')
 os.makedirs(path+'../FakeNoise/')
