@@ -1,7 +1,8 @@
 import os 
 from PIL import Image
 
-path = '../../../data/CycleGAN-data/result/add_pixelwiseloss_128_cat_noise/patch128_pixelwiaeloss_concatNoise_512/test_latest/images/'
+path = '../../../data/CycleGAN-data/result_gaussian/128_longskip_mstd_r9/128_longskip_mstd_r9/test_latest/images/'
+
 if not os.path.exists(path+'../FakeClean/'):
     os.makedirs(path+'../FakeClean/')
 if not os.path.exists(path+'../RealClean/'):

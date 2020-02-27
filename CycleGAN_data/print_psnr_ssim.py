@@ -5,9 +5,9 @@ import numpy
 import cv2
 from skimage.external.tifffile import imsave, imread
 
-result_dir = "../../../data/CycleGAN-data/result/mayo-20200213-redcnn-patch55-n_resblocks16-patch_offset5/"
-GT_dir = "../../../data/CycleGAN-data/datasets/denoising_full/testA/"
-noise_dir = "../../../data/CycleGAN-data/datasets/denoising_full/testB/"
+result_dir = "../../../data/CycleGAN-data/result_mayo_blur_gaussian/128_longskip_mstd_r9/128_longskip_mstd_r9/test_latest/FakeClean/"
+GT_dir = "../../../data/CycleGAN-data/datasets/mayo_blur/testA/"
+noise_dir = "../../../data/CycleGAN-data/datasets/mayo_blur/testB/"
 
 result_list = sorted(os.listdir(result_dir))
 GT_list = sorted(os.listdir(GT_dir))
@@ -25,10 +25,10 @@ if len(result_list) == len(GT_list) and len(result_list) == len(noise_list):
         GT = imread(GT_dir+GT_list[i])
         noise = imread(noise_dir+noise_list[i])
 
-        psnr_r = compare_psnr(result-0.5, GT-0.5)
-        ssim_r = compare_ssim(result-0.5, GT-0.5)
-        psnr_n = compare_psnr(noise-0.5, GT-0.5)
-        ssim_n = compare_ssim(noise-0.5, GT-0.5)
+        psnr_r = compare_psnr(GT, result)
+        ssim_r = compare_ssim(GT, result)
+        psnr_n = compare_psnr(GT, noise)
+        ssim_n = compare_ssim(GT, noise)
         print("result psnr {} ssim {}".format(psnr_r, ssim_r))
         print("noise  psnr {} ssim {}".format(psnr_n, ssim_n))
         avg_psnr_r += psnr_r
@@ -43,7 +43,7 @@ else:
 
 
     """
-    모든 이미지에 -0.5 내꺼에 *2
+    모든 이미지에 -0.5 내꺼에 *2 ---> 1mm
     average result psnr 41.59305725469379 ssim 0.9538950636226659 
     average noise  psnr 39.4374916335283 ssim 0.9242086433746843
     -> ../../../data/CycleGAN-data/result/mayo-20200131-waveletdl-patch64-swt-bior2.2-lv2-parallel+channels_per_group10-patch_offset8/
