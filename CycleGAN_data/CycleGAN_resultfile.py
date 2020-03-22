@@ -1,7 +1,7 @@
 import os 
 from PIL import Image
 
-path = '../../../data/CycleGAN-data/result_gaussian/128_longskip_mstd_r9/128_longskip_mstd_r9/test_latest/images/'
+path = '../../../data/CycleGAN-data/result/genoray/genoray_noise1_gaussain_128_res9/test_latest/images/'
 
 if not os.path.exists(path+'../FakeClean/'):
     os.makedirs(path+'../FakeClean/')
